@@ -26,9 +26,14 @@ DIR_HEADERS		=	includes/
 
 # ---- Files ---- #
 
-HEADERS_LIST	=	Contact.hpp
+HEADERS_LIST	=	Contact.class.hpp		\
+					PhoneBook.class.hpp			\
+					main.hpp
 
-SRCS_LIST		=	Contact.cpp
+SRCS_LIST		=	Contact.class.cpp		\
+					PhoneBook.class.cpp		\
+					main.cpp
+
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
 
@@ -36,7 +41,7 @@ OBJS			=	${SRCS_LIST:%.cpp=${DIR_OBJS}%.o}
 
 # ---- Compilation ---- #
 
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98
+CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g
 
 
 # ######## RULES ######## #
@@ -59,7 +64,7 @@ clean			:
 					${RM} ${OBJS}
 
 fclean			:	clean
-					${RM} -f ${NAME} ${DIR_OBJS}
+					${RM} -r ${NAME} ${DIR_OBJS}
 
 re				:	fclean all
 
