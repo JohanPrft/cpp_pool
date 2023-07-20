@@ -85,14 +85,15 @@ int			PhoneBook::chooseContact(){
 	std::cout << "Wich contact do you want more details on ?" << std::endl;
 	while (true) {
 		std::cin >> index;
-		if (index >= 1 && index <= 8)
+		index--;
+		if (index >= 0 && index <= 7)
 			break;
 		std::cout << "Please choose between 1 and 8" << std::endl;
 	}
 	if (_contactList[index].getFirstName().empty())
 	{
 		std::cout << "Contact doesn't exist" << std::endl;
-		return (0);
+		return (-1);
 	}
 	return (index);
 }
@@ -100,9 +101,9 @@ int			PhoneBook::chooseContact(){
 void		PhoneBook::printContactDetails(int index){
 	if (index == -1)
 		return;
-	std::cout << _contactList[index].getFirstName() << std::endl;
-	std::cout << _contactList[index].getLastName() << std::endl;
-	std::cout << _contactList[index].getNickname() << std::endl;
-	std::cout << _contactList[index].getPhoneNumber() << std::endl;
-	std::cout << _contactList[index].getSecret() << std::endl;
+	std::cout << "First name : " << _contactList[index].getFirstName() << std::endl;
+	std::cout << "Last name : " << _contactList[index].getLastName() << std::endl;
+	std::cout << "Nickname : " << _contactList[index].getNickname() << std::endl;
+	std::cout << "Phone number : " <<_contactList[index].getPhoneNumber() << std::endl;
+	std::cout << "Darkest secret : " << _contactList[index].getSecret();
 }

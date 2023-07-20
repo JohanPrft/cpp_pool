@@ -10,6 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <ostream>
 #include "../includes/Contact.class.hpp"
 #include "../includes/PhoneBook.class.hpp"
 
@@ -22,7 +23,7 @@ int	main(void)
 	std::string	userInput;
 	curIndex = 0;
 	while (true) {
-		std::cout << "You can \"ADD\" a contact, \"SEARCH\" for one or \"EXIT\"" << std::endl;
+		std::cout << std::endl << "You can \"ADD\" a contact, \"SEARCH\" for one or \"EXIT\"" << std::endl;
 		std::cin >> userInput;
 
 		if (userInput == "ADD")
@@ -30,7 +31,7 @@ int	main(void)
 		else if (userInput == "SEARCH")
 		{
 			if (book.printContactList())
-				book.printContactDetails(book.chooseContact() - 1);
+				book.printContactDetails(book.chooseContact());
 		}
 
 		else if (userInput == "EXIT")
