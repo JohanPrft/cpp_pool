@@ -25,15 +25,15 @@ private:
 
 	std::string	_formatString(std::string info);
 	void		_printContactFormated(int index);
-	std::string	_getImput(std::string message);
-public:
-	PhoneBook(void);
 
-	~PhoneBook(void);
-	bool		addContact();
-	bool printContactList();
-	int			chooseContact();
-	void		printContactDetails(int index);
+public:
+	PhoneBook();
+	~PhoneBook();
+
+	bool	addContact();
+	bool	printContactList();
+	int		chooseContact();
+	void	printContactDetails(int index);
 };
 
 #endif //PHONEBOOK_CLASS_HPP

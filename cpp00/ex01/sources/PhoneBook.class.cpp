@@ -23,7 +23,7 @@ PhoneBook::~PhoneBook() {
 }
 
 bool	PhoneBook::addContact() {
-	//_index = _index % 8;
+	_index = _index % 8;
 	std::cout << "First name: ";
 	_contactList[_index].fillFirstName();
 	std::cout << "Last name: ";
@@ -85,6 +85,10 @@ int			PhoneBook::chooseContact(){
 	std::cout << "Wich contact do you want more details on ?" << std::endl;
 	while (true) {
 		std::cin >> index;
+		if (std::cin.fail() || std::cin.eof()) {
+			std::cin.clear();
+			std::cin.ignore();
+		}
 		index--;
 		if (index >= 0 && index <= 7)
 			break;

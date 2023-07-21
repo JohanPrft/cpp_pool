@@ -17,11 +17,9 @@
 int	main(void)
 {
 	PhoneBook	book;
-	int			curIndex;
 
 	std::cout << "Welcome to PhoneBook !" << std::endl;
 	std::string	userInput;
-	curIndex = 0;
 	while (true) {
 		std::cout << std::endl << "You can \"ADD\" a contact, \"SEARCH\" for one or \"EXIT\"" << std::endl;
 		std::cin >> userInput;
