@@ -25,15 +25,20 @@ PhoneBook::~PhoneBook() {
 bool	PhoneBook::addContact() {
 	_index = _index % 8;
 	std::cout << "First name: ";
-	_contactList[_index].fillFirstName();
+	if (!_contactList[_index].fillFirstName())
+		return (false);
 	std::cout << "Last name: ";
-	_contactList[_index].fillLastName();
+	if (!_contactList[_index].fillLastName())
+		return (false);
 	std::cout << "Nickname: ";
-	_contactList[_index].fillNickname();
+	if (!_contactList[_index].fillNickname())
+		return (false);
 	std::cout << "Phone number: ";
-	_contactList[_index].fillPhoneNumber();
+	if (!_contactList[_index].fillPhoneNumber())
+		return (false);
 	std::cout << "Darkest secret: ";
-	_contactList[_index].fillSecret();
+	if (!_contactList[_index].fillSecret())
+		return (false);
 	std::cout << "Contact added successfully !" << std::endl;
 	_index++;
 	return (true);
@@ -82,13 +87,11 @@ bool PhoneBook::printContactList(){
 int			PhoneBook::chooseContact(){
 	int		index;
 
-	std::cout << "Wich contact do you want more details on ?" << std::endl;
+	std::cout << "Which contact do you want more details on ?" << std::endl;
 	while (true) {
 		std::cin >> index;
-		if (std::cin.fail() || std::cin.eof()) {
-			std::cin.clear();
-			std::cin.ignore();
-		}
+		if (!std::cin)
+			return (-1);
 		index--;
 		if (index >= 0 && index <= 7)
 			break;

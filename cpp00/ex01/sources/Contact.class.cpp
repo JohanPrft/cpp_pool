@@ -22,26 +22,36 @@ Contact::~Contact() {
 
 bool Contact::fillFirstName() {
 	std::cin >> _firstName;
+	if (!std::cin)
+		return (false);
 	return (true);
 }
 
 bool Contact::fillLastName() {
 	std::cin >> _lastName;
+	if (!std::cin)
+		return (false);
 	return (true);
 }
 
 bool Contact::fillNickname() {
 	std::cin >> _nickname;
+	if (!std::cin)
+		return (false);
 	return (true);
 }
 
 bool Contact::fillPhoneNumber() {
 	std::cin >> _phoneNumber;
+	if (!std::cin)
+		return (false);
 	return (true);
 }
 
 bool Contact::fillSecret() {
 	std::cin >> _secret;
+	if (!std::cin)
+		return (false);
 	return (true);
 }
 

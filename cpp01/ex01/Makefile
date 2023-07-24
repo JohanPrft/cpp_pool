@@ -31,7 +31,8 @@ HEADERS_LIST	=	Zombie.hpp
 SRCS_LIST		=	main.cpp		\
 					Zombie.cpp		\
 					newZombie.cpp	\
-					randomChump.cpp
+					randomChump.cpp	\
+					zombieHorde.cpp
 
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}

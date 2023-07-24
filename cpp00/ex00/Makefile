@@ -46,4 +46,4 @@ fclean:			clean
 re:				fclean
 				$(MAKE) all
 
-.PHONY:			all clean fclean re
+.PHONY:			all run clean fclean re

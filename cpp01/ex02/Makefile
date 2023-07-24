@@ -20,18 +20,15 @@ NAME			=	tlou
 
 DIR_OBJS		=	.bin/
 
-DIR_SRCS		=	sources/
+DIR_SRCS		=
 
 DIR_HEADERS		=	includes/
 
 # ---- Files ---- #
 
-HEADERS_LIST	=	Zombie.hpp
+HEADERS_LIST	=
 
-SRCS_LIST		=	main.cpp		\
-					Zombie.cpp		\
-					newZombie.cpp	\
-					randomChump.cpp
+SRCS_LIST		=	main.cpp
 
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}

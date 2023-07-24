@@ -41,7 +41,9 @@ OBJS			=	${SRCS_LIST:%.cpp=${DIR_OBJS}%.o}
 
 # ---- Compilation ---- #
 
-CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g
+CPP				=	c++ -std=c++98
+
+CFLAGS			=	-Wall -Wextra -Werror -g
 
 
 # ######## RULES ######## #
@@ -49,13 +51,13 @@ CFLAGS			=	-Wall -Wextra -Werror -std=c++98 -g
 all				:	${NAME}
 
 ${NAME}			:	${DIR_OBJS} ${OBJS} ${HEADERS}
-					c++ ${CFLAGS} -I ${DIR_HEADERS} ${OBJS} ${LIBRARY} -o ${NAME}
+					${CPP} ${CFLAGS} -I ${DIR_HEADERS} ${OBJS} ${LIBRARY} -o ${NAME}
 
 run				:	${NAME}
 					./${NAME}
 
 ${OBJS}			:	${DIR_OBJS}%.o:	${DIR_SRCS}%.cpp ${HEADERS} Makefile
-					c++ ${CFLAGS} -I ${DIR_HEADERS} -c $< -o $@
+					${CPP} ${CFLAGS} -I ${DIR_HEADERS} -c $< -o $@
 
 ${DIR_OBJS}		:
 					mkdir -p ${DIR_OBJS}
@@ -68,7 +70,5 @@ fclean			:	clean
 
 re				:	fclean all
 
-debug			:
-					@echo ${HEADERS}
 
 .PHONY:	all run clean fclean re

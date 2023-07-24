@@ -26,12 +26,14 @@ DIR_HEADERS		=	includes/
 
 # ---- Files ---- #
 
-HEADERS_LIST	=	Zombie.hpp
+HEADERS_LIST	=	Weapon.hpp		\
+					HumanA.hpp		\
+					HumanB.hpp
 
 SRCS_LIST		=	main.cpp		\
-					Zombie.cpp		\
-					newZombie.cpp	\
-					randomChump.cpp
+					Weapon.cpp		\
+					HumanA.cpp		\
+					HumanB.cpp
 
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}

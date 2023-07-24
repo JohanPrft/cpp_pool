@@ -20,7 +20,7 @@ int	main(void)
 
 	std::cout << "Welcome to PhoneBook !" << std::endl;
 	std::string	userInput;
-	while (true) {
+	while (true && std::cin) {
 		std::cout << std::endl << "You can \"ADD\" a contact, \"SEARCH\" for one or \"EXIT\"" << std::endl;
 		std::cin >> userInput;
 
@@ -31,11 +31,10 @@ int	main(void)
 			if (book.printContactList())
 				book.printContactDetails(book.chooseContact());
 		}
-
 		else if (userInput == "EXIT")
 			break ;
 		else
-			std::cout << "! Wrong imput !" << std::endl;
+			std::cout << "! Wrong input !" << std::endl;
 	}
 
 	return (0);
