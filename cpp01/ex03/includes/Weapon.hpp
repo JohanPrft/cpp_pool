@@ -16,9 +16,6 @@
 #include <string>
 #include <iostream>
 
-class	HumanA{};
-class	HumanB{};
-
 class	Weapon{
 
 private:

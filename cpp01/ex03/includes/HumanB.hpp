@@ -26,7 +26,7 @@ public:
 	~HumanB();
 
 	void	attack() const;
-	void	setWeapon(Weapon weapon);
+	void	setWeapon(Weapon& weapon);
 };
 
 #endif

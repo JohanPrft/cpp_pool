@@ -1,27 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   HumanB.cpp                                         :+:      :+:    :+:   */
+/*   File.cpp                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: jprofit <jprofit@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/07/24 17:03:46 by jprofit           #+#    #+#             */
-/*   Updated: 2023/07/24 17:03:46 by jprofit          ###   ########.fr       */
+/*   Created: 2023/07/25 10:43:24 by jprofit           #+#    #+#             */
+/*   Updated: 2023/07/25 10:43:24 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/HumanB.hpp"
+#include "../includes/File.hpp"
 
-HumanB::HumanB(std::string const name) : _name(name){
+File::File() {
+
 }
 
-HumanB::~HumanB() {
-}
+File::~File() {
 
-void	HumanB::attack() const {
-	std::cout << _name << " attacks with their " << _weapon->getType() << std::endl;
-}
-
-void	HumanB::setWeapon(Weapon& weapon){
-	_weapon = &weapon;
 }
