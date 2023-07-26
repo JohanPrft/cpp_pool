@@ -15,7 +15,7 @@
 #include "../includes/File.hpp"
 
 bool	checkFiles(std::ifstream& ifs, std::ofstream& ofs);
-std::string	replace(std::string str, const std::string toFind, const std::string toReplace);
+std::string	replace(std::string str, const std::string& toFind, const std::string& toReplace);
 
 int	main(int ac, char** av){
 	std::ifstream	ifs;
@@ -34,16 +34,20 @@ int	main(int ac, char** av){
 	while (getline(ifs, line))
 		wholeFile += line += '\n';
 	wholeFile = replace(wholeFile, av[2], av[3]);
-	std::cout << wholeFile;
+	ofs << wholeFile;
+	ifs.close();
+	ofs.close();
 	return (0);
 }
 
-std::string	replace(std::string str, const std::string toFind, const std::string toReplace)
+std::string	replace(std::string str, const std::string& toFind, const std::string& toReplace)
 {
 	size_t pos = 0;
 	size_t findLength = toFind.length();
 	size_t replaceLength = toReplace.length();
 
+	if(findLength == 0)
+		return (str);
 	while((pos = str.find(toFind, pos)) != std::string::npos) {
 		str.erase(pos, findLength);
 		str.insert(pos, toReplace);
