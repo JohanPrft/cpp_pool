@@ -26,10 +26,9 @@ DIR_HEADERS		=	includes/
 
 # ---- Files ---- #
 
-HEADERS_LIST	=	File.hpp
+HEADERS_LIST	=
 
-SRCS_LIST		=	main.cpp		\
-					File.cpp
+SRCS_LIST		=	main.cpp
 
 
 

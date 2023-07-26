@@ -11,8 +11,9 @@
 /* ************************************************************************** */
 
 #include <iostream>
+#include <fstream>
 #include <cstring>
-#include "../includes/File.hpp"
+
 
 bool	checkFiles(std::ifstream& ifs, std::ofstream& ofs);
 std::string	replace(std::string str, const std::string& toFind, const std::string& toReplace);

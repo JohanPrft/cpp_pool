@@ -21,14 +21,14 @@ class Zombie {
 private:
 	std::string	_name;
 	std::string	_getName() const;
+
 public:
 
 	Zombie();
-
 	~Zombie();
 
 	void		setName(std::string name);
-	void		announce() const;
+	void		announce(void) const;
 };
 
 

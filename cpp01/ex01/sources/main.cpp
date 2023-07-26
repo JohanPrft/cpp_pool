@@ -19,7 +19,7 @@ Zombie* zombieHorde(int N, std::string name);
 int	main() {
 	Zombie* horde;
 
-	horde = zombieHorde(10, "VcarT");
+	horde = zombieHorde(3, "VcarT");
 	delete [] horde;
 	return (0);
 }
