@@ -59,3 +59,72 @@ std::ostream& operator<<( std::ostream& os, const Fixed& number ){
 	os << number.toFloat();
 	return (os);
 }
+
+bool	Fixed::operator<(const Fixed& other) const{
+	if (this->toFloat() < other.toFloat())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator>(const Fixed& other) const{
+	if (this->toFloat() > other.toFloat())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator<=(const Fixed& other) const{
+	if (this->toFloat() <= other.toFloat())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator>=(const Fixed& other) const{
+	if (this->toFloat() >= other.toFloat())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator==(const Fixed& other) const{
+	if (this->toFloat() == other.toFloat())
+		return (true);
+	return (false);
+}
+
+bool Fixed::operator!=(const Fixed& other) const{
+	if (this->toFloat() != other.toFloat())
+		return (true);
+	return (false);
+}
+
+Fixed Fixed::operator+(const Fixed& other) const{
+	return (this->toFloat() + other.toFloat());
+}
+
+Fixed Fixed::operator-(const Fixed& other) const{
+	return (this->toFloat() - other.toFloat());
+}
+
+Fixed Fixed::operator*(const Fixed& other) const{
+	return (this->toFloat() * other.toFloat());
+}
+
+Fixed Fixed::operator/(const Fixed& other) const{
+	return (this->toFloat() / other.toFloat());
+}
+
+void	Fixed::operator++() {
+	_value++;
+}
+
+void	Fixed::operator++(int) {
+	++_value;
+}
+
+
+
+
+
+
+
+
+

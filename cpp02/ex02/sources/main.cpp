@@ -6,7 +6,7 @@
 /*   By: jprofit <jprofit@student.42lyon.fr>        +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/07/26 16:53:00 by jprofit           #+#    #+#             */
-/*   Updated: 2023/07/26 16:53:00 by jprofit          ###   ########.fr       */
+/*   Updated: 2023/07/27 15:28:09 by jprofit          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,17 +15,8 @@
 
 int main( void ) {
 	Fixed a;
-	Fixed const b( 10 );
+	Fixed const b( 42.425f );
 	Fixed const c( 42.42f );
-	Fixed const d( b );
-	a = Fixed( 1234.4321f );
-	std::cout << "a is " << a << std::endl;
-	std::cout << "b is " << b << std::endl;
-	std::cout << "c is " << c << std::endl;
-	std::cout << "d is " << d << std::endl;
-	std::cout << "a is " << a.toInt() << " as integer" << std::endl;
-	std::cout << "b is " << b.toInt() << " as integer" << std::endl;
-	std::cout << "c is " << c.toInt() << " as integer" << std::endl;
-	std::cout << "d is " << d.toInt() << " as integer" << std::endl;
+	std::cout << (b > c) << std::endl;
 	return 0;
 }
