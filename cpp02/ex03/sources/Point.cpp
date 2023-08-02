@@ -12,10 +12,15 @@ Point::Point(const Point &src) : x(src.x), y(src.y) {
 }
 
 Point &Point::operator=(const Point &cpy) {
-	// ne fait pas sens
+	// n'a pas de sens
+	(void)cpy;
 	return (*this);
 }
 
 Point::~Point() {
 
+}
+
+Fixed Point::CrossProduct(const Point &a, const Point &b, const Point &c) {
+	return (((a.x - c.x) * (b.y - c.y) - (a.y - c.y) * (b.x - c.x)).toFloat());
 }

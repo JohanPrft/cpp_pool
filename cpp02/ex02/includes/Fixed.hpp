@@ -38,6 +38,8 @@ public:
 
 	Fixed	operator++();		//prefix
 	Fixed	operator++(int);	//postfix
+	Fixed	operator--();		//prefix
+	Fixed	operator--(int);	//postfix
 
 	static Fixed	min(Fixed& a, Fixed& b);
 	static Fixed	min(const Fixed a, const Fixed b);

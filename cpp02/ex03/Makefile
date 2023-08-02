@@ -31,6 +31,7 @@ HEADERS_LIST	=	Fixed.hpp		\
 
 SRCS_LIST		=	main.cpp		\
 					Fixed.cpp		\
+					bsp.cpp		\
 					Point.cpp
 
 

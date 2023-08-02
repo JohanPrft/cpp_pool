@@ -16,6 +16,8 @@ public:
 	Point &operator=(const Point &cpy);
 	~Point();
 
+	static Fixed CrossProduct (const Point &a, const Point &b, const Point &c);
+
 };
 
 

@@ -61,37 +61,37 @@ std::ostream& operator<<( std::ostream& os, const Fixed& number ){
 }
 
 bool	Fixed::operator<(const Fixed& other) const{
-	if (this->toFloat() < other.toFloat())
+	if (_value < other.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool Fixed::operator>(const Fixed& other) const{
-	if (this->toFloat() > other.toFloat())
+	if (_value > other.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool Fixed::operator<=(const Fixed& other) const{
-	if (this->toFloat() <= other.toFloat())
+	if (_value <= other.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool Fixed::operator>=(const Fixed& other) const{
-	if (this->toFloat() >= other.toFloat())
+	if (_value >= other.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool Fixed::operator==(const Fixed& other) const{
-	if (this->toFloat() == other.toFloat())
+	if (_value == other.getRawBits())
 		return (true);
 	return (false);
 }
 
 bool Fixed::operator!=(const Fixed& other) const{
-	if (this->toFloat() != other.toFloat())
+	if (_value != other.getRawBits())
 		return (true);
 	return (false);
 }
@@ -113,12 +113,22 @@ Fixed Fixed::operator/(const Fixed& other) const{
 }
 
 Fixed	Fixed::operator++() {
-	_value++;
+	++_value;
     return (*this);
 }
 
 Fixed	Fixed::operator++(int) {
-	++_value;
+	_value++;
+    return (*this);
+}
+
+Fixed	Fixed::operator--() {
+	--_value;
+    return (*this);
+}
+
+Fixed	Fixed::operator--(int) {
+	_value--;
     return (*this);
 }
 

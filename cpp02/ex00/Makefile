@@ -31,9 +31,6 @@ HEADERS_LIST	=	Fixed.hpp
 SRCS_LIST		=	main.cpp		\
 					Fixed.cpp
 
-
-
-
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
 
 OBJS			=	${SRCS_LIST:%.cpp=${DIR_OBJS}%.o}
