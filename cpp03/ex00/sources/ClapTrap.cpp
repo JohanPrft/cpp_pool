@@ -47,24 +47,32 @@ void ClapTrap::takeDamage(unsigned int amount){
 	if (_hitpoints <= 0)
 		std::cout << "ClapTrap " << _name << " is already severally broken!" << std::endl;
 	else if (_hitpoints - amount <= 0)
+	{
 		std::cout << "ClapTrap " << _name << " is broken!" << std::endl;
+		_hitpoints -= amount;
+	}
 	else
+	{
 		std::cout << "ClapTrap " << _name << " takes " << amount << " points of damage!" << std::endl;
+		_hitpoints -= amount;
+	}
 }
 
 void ClapTrap::beRepaired(unsigned int amount){
 	if (_hitpoints <= 0)
 		std::cout << "ClapTrap " << _name << " is too severally broken and can't be repaired!" << std::endl;
 	else if (_energyPoints <= 0)
-		std::cout << "ClapTrap " << _name << " is out of battery and can't fixes himself!" << std::endl;
+		std::cout << "ClapTrap " << _name << " is out of battery and can't fix himself!" << std::endl;
 	else if (_hitpoints + amount >= 10)
 	{
 		std::cout << "ClapTrap " << _name << " starts to reinforce himself!" << std::endl;
+		_hitpoints += amount;
 		_energyPoints--;
 	}
 	else
 	{
 		std::cout << "ClapTrap " << _name << " fixes himself and gained " << amount << " points of health!" << std::endl;
+		_hitpoints += amount;
 		_energyPoints--;
 	}
 }
