@@ -2,6 +2,7 @@
 # define CPP04_ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal {
 
@@ -9,6 +10,7 @@ private:
 
 protected:
 	std::string	_type;
+	Brain*		_brain;
 
 public:
 	Animal();
@@ -17,7 +19,7 @@ public:
 	virtual ~Animal();
 
 	std::string		getType() const;
-	virtual void	makeSound() const;
+	virtual void	makeSound() const = 0;
 };
 
 

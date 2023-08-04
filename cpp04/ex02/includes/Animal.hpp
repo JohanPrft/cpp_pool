@@ -2,6 +2,7 @@
 # define CPP04_ANIMAL_HPP
 
 # include <iostream>
+# include "Brain.hpp"
 
 class Animal {
 
@@ -9,6 +10,7 @@ private:
 
 protected:
 	std::string	_type;
+	Brain*		_brain;
 
 public:
 	Animal();

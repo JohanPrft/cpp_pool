@@ -29,15 +29,17 @@ DIR_HEADERS		=	includes/
 HEADERS_LIST	=	Animal.hpp			\
 					Dog.hpp				\
 					Cat.hpp				\
-					WrongAnimal.hpp	\
-					WrongCat.hpp
+					WrongAnimal.hpp		\
+					WrongCat.hpp		\
+					Brain.hpp
 
 SRCS_LIST		=	main.cpp			\
 					Animal.cpp			\
 					Dog.cpp				\
 					Cat.cpp				\
-					WrongAnimal.cpp	\
-					WrongCat.cpp
+					WrongAnimal.cpp		\
+					WrongCat.cpp		\
+					Brain.cpp
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
 

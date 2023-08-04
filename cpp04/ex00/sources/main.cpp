@@ -10,20 +10,34 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ClapTrap.hpp"
+#include "../includes/Animal.hpp"
+#include "../includes/Cat.hpp"
+#include "../includes/Dog.hpp"
+#include "../includes/WrongAnimal.hpp"
+#include "../includes/WrongCat.hpp"
 
-int main( void ) {
-	std::string trapName0 = "CT000";
-	std::string trapName1 = "CT-42";
+int main()
+{
+	const Animal* meta = new Animal();
+	const Animal* j = new Dog();
+	const Animal* i = new Cat();
+	std::cout << std::endl;
+	meta->makeSound();
+	j->makeSound();
+	i->makeSound(); //will output the cat sound!
+	std::cout << std::endl;
+	delete meta;
+	delete j;
+	delete i;
+	std::cout << std::endl << std::endl;
 
-	ClapTrap	trap0(trapName0);
-	ClapTrap	trap1(trapName1);
-
-	trap0.beRepaired(0);
-	for (int i = 0; i < 9; i++) {
-		trap0.attack(trapName1);
-		trap1.takeDamage(0);
-	}
-	trap0.attack(trapName1);
-	trap0.beRepaired(1);
-	return (0);}
+	const WrongAnimal* wrongMeta = new WrongAnimal();
+	const WrongAnimal* wrongCat = new WrongCat();
+	std::cout << std::endl;
+	wrongMeta->makeSound();
+	wrongCat->makeSound();
+	std::cout << std::endl;
+	delete wrongMeta;
+	delete wrongCat;
+	return 0;
+}
