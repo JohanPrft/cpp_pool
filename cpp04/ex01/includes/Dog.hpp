@@ -6,12 +6,13 @@
 class Dog : public Animal{
 
 private:
+	Brain*		_brain;
 
 public:
 	Dog();
 	Dog(const Dog &src);
 	Dog &operator=(const Dog &cpy);
-	~Dog();
+	virtual ~Dog();
 
 	void	makeSound() const;
 };

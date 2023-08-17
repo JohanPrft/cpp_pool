@@ -10,32 +10,40 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
-#include "../includes/Cat.hpp"
-#include "../includes/Dog.hpp"
-#include "../includes/WrongAnimal.hpp"
-#include "../includes/WrongCat.hpp"
+#include "../includes/Form.hpp"
 
-const int	G_ANIMAL_ARRAY_SIZE = 20;
+void	testForm(Bureaucrat &bureaucrat, Form &form)
+{
+	form.signForm(bureaucrat);
+//	std::cout << form.getName() << " status is ";
+//	if (form.getSigned())
+//		std ::cout << "signed" << std::endl;
+//	else
+//		std ::cout << "not signed" << std::endl;
+}
 
 int main()
 {
-	Animal* array[G_ANIMAL_ARRAY_SIZE];
-	for (int i = 0; i < G_ANIMAL_ARRAY_SIZE; i++){
-		if (i % 2)
-			array[i] = new Dog();
-		else
-			array[i] = new Cat();
-	}
+	Bureaucrat	ceo("Math", 1);
+	Bureaucrat	director("Sash", 5);
+	Bureaucrat	manager("Thomas", 10);
+	Bureaucrat	employee("Anto", 50);
+	Bureaucrat	intern("Esteban", 150);
 
-	for (int i = 0; i < G_ANIMAL_ARRAY_SIZE; i++) {
-		array[i]->makeSound();
-	}
+	Form		doc1("selling the company", 1, 1);
+	Form		doc2("firing someone", 5, 5);
+	Form		doc3("set tasks to do", 10, 10);
+	Form		doc4("coffee break", 150, 150);
 
-	for (int i = 0; i < G_ANIMAL_ARRAY_SIZE; i++){
-		delete array[i];
-	}
+	std::cout << doc1;
+	std::cout << doc2;
+	std::cout << doc3;
+	std::cout << doc4;
+	std::cout << std::endl;
 
-	//Animal miaou;
-	return (0);
+	testForm(intern, doc4);
+	testForm(employee, doc2);
+	testForm(ceo, doc3);
+	testForm(manager, doc1);
+	return 0;
 }

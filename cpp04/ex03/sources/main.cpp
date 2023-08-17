@@ -10,32 +10,27 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/Animal.hpp"
-#include "../includes/Cat.hpp"
-#include "../includes/Dog.hpp"
-#include "../includes/WrongAnimal.hpp"
-#include "../includes/WrongCat.hpp"
-
-const int	G_ANIMAL_ARRAY_SIZE = 20;
+#include "../includes/Character.hpp"
+#include "../includes/Ice.hpp"
+#include "../includes/Cure.hpp"
+#include "../includes/MateriaSource.hpp"
 
 int main()
 {
-	Animal* array[G_ANIMAL_ARRAY_SIZE];
-	for (int i = 0; i < G_ANIMAL_ARRAY_SIZE; i++){
-		if (i % 2)
-			array[i] = new Dog();
-		else
-			array[i] = new Cat();
-	}
-
-	for (int i = 0; i < G_ANIMAL_ARRAY_SIZE; i++) {
-		array[i]->makeSound();
-	}
-
-	for (int i = 0; i < G_ANIMAL_ARRAY_SIZE; i++){
-		delete array[i];
-	}
-
-	//Animal miaou;
-	return (0);
+	IMateriaSource* src = new MateriaSource();
+	src->learnMateria(new Ice());
+	src->learnMateria(new Cure());
+	ICharacter* me = new Character("me");
+	AMateria* tmp;
+	tmp = src->createMateria("ice");
+	me->equip(tmp);
+	tmp = src->createMateria("cure");
+	me->equip(tmp);
+	ICharacter* bob = new Character("bob");
+	me->use(0, *bob);
+	me->use(1, *bob);
+	delete bob;
+	delete me;
+	delete src;
+	return 0;
 }
