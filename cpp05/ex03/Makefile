@@ -30,14 +30,16 @@ HEADERS_LIST	=	Bureaucrat.hpp				\
 					AForm.hpp					\
 					ShrubberyCreationForm.hpp	\
 					RobotomyRequestForm.hpp		\
-					PresidentialPardonForm.hpp
+					PresidentialPardonForm.hpp	\
+					Intern.hpp
 
 SRCS_LIST		=	main.cpp					\
 					Bureaucrat.cpp				\
 					AForm.cpp					\
 					ShrubberyCreationForm.cpp	\
 					RobotomyRequestForm.cpp		\
-					PresidentialPardonForm.cpp
+					PresidentialPardonForm.cpp	\
+					Intern.cpp
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
 

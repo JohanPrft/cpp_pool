@@ -36,7 +36,8 @@ int main()
 	testBureaucrat("Fail2", 0);
 	std::cout << std::endl;
 
-	try {
+	try
+	{
 		Bureaucrat bur("Johan", 150);
 		std::cout << bur << std::endl;
 		bur.decrementGrade();

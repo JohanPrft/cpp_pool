@@ -18,6 +18,17 @@ Form &Form::operator=(const Form &cpy) {
 Form::~Form() {
 }
 
+const char * Form::GradeTooHighException::what() const throw()
+{
+    return "Grade is too high for the form";
+}
+
+const char * Form::GradeTooLowException::what() const throw()
+{
+    return "Grade is too low for the form";
+}
+
+
 Form::Form(std::string name, int gradeToSign, int gradeToExecute)
 : _name(name), _signed(false), _gradeToSign(gradeToSign), _gradeToExecute(gradeToExecute)
 {

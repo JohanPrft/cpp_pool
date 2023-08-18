@@ -24,6 +24,16 @@ Bureaucrat &Bureaucrat::operator=(const Bureaucrat &cpy) {
 Bureaucrat::~Bureaucrat() {
 }
 
+const char* Bureaucrat::GradeTooHighException::what() const throw()
+{
+	return "Grade too high";
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw()
+{
+	return "Grade too low";
+}
+
 std::string	Bureaucrat::getName() const{
 	return _name;
 }
@@ -42,6 +52,32 @@ void 		Bureaucrat::decrementGrade(){
 	if (_grade + 1 > 150)
 		throw Bureaucrat::GradeTooLowException();
 	_grade++;
+}
+
+void	Bureaucrat::signForm(AForm & form) {
+	try
+	{
+		form.beSigned(*this);
+		std::cout << _name << " signed form " << form.getName() << std::endl;
+	}
+	catch (std::exception &e)
+	{
+		std::cout << _name  << " couldn't sign " << form.getName() << " because " << e.what() << std::endl;
+	}
+}
+
+
+void Bureaucrat::executeForm(const AForm &form) {
+	try
+	{
+		form.execute(*this);
+		std::cout << _name << " executes " << form.getName() << std::endl;
+	}
+	catch(const std::exception& e)
+	{
+		std::cerr << _name << " cannot execute " << form.getName() << " because " << e.what() << std::endl;
+		return ;
+	}
 }
 
 std::ostream&	operator<<(std::ostream &os, Bureaucrat &bureaucrat){

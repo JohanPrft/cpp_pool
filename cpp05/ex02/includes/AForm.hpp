@@ -1,10 +1,12 @@
 #ifndef CPP_POOL_FORM_HPP
 # define CPP_POOL_FORM_HPP
 
-#include <iostream>
-#include "../includes/Bureaucrat.hpp"
+# include <iostream>
+# include "Bureaucrat.hpp"
 
-class Form {
+class Bureaucrat;
+
+class AForm {
 
 private:
 	std::string const	_name;
@@ -13,23 +15,24 @@ private:
 	int const			_gradeToExecute;
 
 public:
-	Form();
-	Form(const Form &src);
-	Form &operator=(const Form &cpy);
-	~Form();
-	Form(std::string const name, int const gradeToSign, int const gradeToExecute);
+	AForm();
+	AForm(const AForm &src);
+	AForm &operator=(const AForm &cpy);
+	virtual ~AForm();
+	AForm(std::string const name, int const gradeToSign, int const gradeToExecute);
 
 	class GradeTooHighException : public std::exception {
 	public:
-		const char* what() const throw() {
-			return "grade is too high to sign!";
-		}
+		const char* what() const throw();
 	};
 	class GradeTooLowException : public std::exception {
 	public:
-		const char* what() const throw() {
-			return "grade is too low to sign!";
-		}
+		const char* what() const throw();
+	};
+	class FormNotSignedException : public std::exception
+	{
+	public :
+		const char* what() const throw();
 	};
 
 	std::string		getName() const;
@@ -38,10 +41,9 @@ public:
 	int				getGradeToExecute() const;
 
 	void			beSigned(Bureaucrat const &bureaucrat);
-	void			signForm(Bureaucrat const &bureaucrat);
 	virtual void	execute(Bureaucrat const &executor) const = 0;
 };
 
-std::ostream&	operator<<(std::ostream &os, Form &form);
+std::ostream&	operator<<(std::ostream &os, AForm &form);
 
 #endif
