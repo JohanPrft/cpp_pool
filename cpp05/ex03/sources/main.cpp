@@ -45,4 +45,6 @@ int main()
 	testInternFormCreation(max, "robotomy request", "Zuck");
 	std::cout << std::endl;
 	testInternFormCreation(max, "presidential pardon", "Jay");
+	std::cout << std::endl;
+	testInternFormCreation(max, "fail", "fail");
 }

@@ -17,7 +17,7 @@ Intern::~Intern() {
 
 const char* Intern::FormNameNotFoundException::what() const throw()
 {
-	return "Grade too low";
+	return "Form name doesn't exist";
 }
 
 AForm* Intern::_makeRobotomyRequestForm(std::string target){

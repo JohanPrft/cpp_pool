@@ -19,7 +19,7 @@ int main()
 		Bureaucrat	intern("Esteban", 150);
 		Form	doc1("firing someone", 5, 5);
 
-		std::cout << doc1;
+		std::cout << doc1 << intern << std::endl;
 		intern.signForm(doc1);
 	}
 	catch (std::exception& e)
@@ -32,7 +32,7 @@ int main()
 		Bureaucrat	director("Sash", 5);
 		Form	doc2("set tasks to do", 10, 10);
 
-		std::cout << doc2;
+		std::cout << doc2 << director << std::endl;
 		director.signForm(doc2);
 	}
 	catch (std::exception& e)
@@ -45,7 +45,7 @@ int main()
 		Bureaucrat	ceo("Math", 1);
 		Form	doc3("coffee break", 150, 150);
 
-		std::cout << doc3;
+		std::cout << doc3 << ceo << std::endl;
 		ceo.signForm(doc3);
 	}
 	catch (std::exception& e)

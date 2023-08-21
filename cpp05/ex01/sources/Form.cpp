@@ -20,12 +20,12 @@ Form::~Form() {
 
 const char * Form::GradeTooHighException::what() const throw()
 {
-    return "Grade is too high for the form";
+    return "Form grade is too high";
 }
 
 const char * Form::GradeTooLowException::what() const throw()
 {
-    return "Grade is too low for the form";
+    return "Form grade is too low";
 }
 
 
