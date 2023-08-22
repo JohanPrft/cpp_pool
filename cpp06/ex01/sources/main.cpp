@@ -10,22 +10,30 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/ScalarConvert.hpp"
+#include "../includes/Serializer.hpp"
 
-int main(int argc, char **argv)
+int main()
 {
-	if (argc != 2)
+	Serializer serializer;
+	struct Data og_data;
+	og_data.str = "Hello";
+	og_data.nb = 42;
+
+	std::cout << "og_data.str: "<< og_data.str << std::endl;
+	std::cout << "og_data.nb: "<< og_data.nb << std::endl;
+	std::cout << std::endl;
+
+	uintptr_t serialized_data = serializer.serialize(&og_data);
+	Data* deserialized_data = serializer.deserialize(serialized_data);
+	std::cout << std::endl;
+
+	if (&og_data == deserialized_data)
 	{
-		std::cout << "Error: Wrong number of arguments" << std::endl;
-		return 1;
+		std::cout << "og_data == deserialized_data" << std::endl;
+		std::cout << "deserialized_data->str: "<< deserialized_data->str << std::endl;
+		std::cout << "deserialized_data->nb: "<< deserialized_data->nb << std::endl;
 	}
-	try
-	{
-		ScalarConvert::convert(argv[1]);
-	}
-	catch (std::exception &e)
-	{
-		std::cout << e.what() << std::endl;
-	}
+	else
+		std::cout << "og_data != deserialized_data" << std::endl;
 	return 0;
 }

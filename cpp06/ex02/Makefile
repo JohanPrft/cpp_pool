@@ -26,10 +26,16 @@ DIR_HEADERS		=	includes/
 
 # ---- Files ---- #
 
-HEADERS_LIST	=	ScalarConvert.hpp
+HEADERS_LIST	=	Base.hpp	\
+					A.hpp		\
+					B.hpp		\
+					C.hpp
 
-SRCS_LIST		=	main.cpp 			\
-					ScalarConvert.cpp
+SRCS_LIST		=	main.cpp 	\
+					Base.cpp	\
+					A.cpp		\
+					B.cpp		\
+					C.cpp
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
 
