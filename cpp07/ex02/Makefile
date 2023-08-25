@@ -14,7 +14,7 @@
 
 # ---- Final Executable --- #
 
-NAME			=	iter
+NAME			=	array
 
 # ---- Directories ---- #
 
@@ -26,7 +26,7 @@ DIR_HEADERS		=	includes/
 
 # ---- Files ---- #
 
-HEADERS_LIST	=	iter.hpp
+HEADERS_LIST	=	Array.hpp
 
 SRCS_LIST		=	main.cpp
 

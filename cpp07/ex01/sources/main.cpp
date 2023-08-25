@@ -12,25 +12,25 @@
 
 #include "../includes/iter.hpp"
 
-int main()
+int	main(void)
 {
-	int		a = 1;
-	int		b = 42;
-
-	std::cout << "a = " << a << " b = " << b << std::endl;
-	swap<int>(a, b);
-	std::cout << "a = " << a << " b = " << b << std::endl;
-	std::cout << min<int>(a,b) << std::endl;
-	std::cout << max<int>(a,b) << std::endl;
+	int const	tabSize = 4;
+	std::string	tabString[tabSize] = {
+			"42",
+			"21",
+			"Hello",
+			"World"
+	};
+	iter(tabString, tabSize, print);
 	std::cout << std::endl;
 
-	float	c = 1.5;
-	float	d = 42.5;
-	std::cout << "c= " << c<< " d = " << d << std::endl;
-	swap<float>(c,d);
-	std::cout << "c= " << c<< " d = " << d << std::endl;
-	std::cout << min<float>(c,d) << std::endl;
-	std::cout << max<float>(c,d) << std::endl;
+	int tabInt[tabSize] = {
+			42,
+			21,
+			84,
+			168
+	};
+	iter(tabInt, tabSize, print);
 
 	return 0;
 }
