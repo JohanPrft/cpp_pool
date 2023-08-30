@@ -39,7 +39,7 @@ unsigned int const & Span::getMaxElements() const {
 void Span::addNumber(int const n) {
 	if (_v.size() >= _maxElements)
 		throw ArrayIsFullException();
-	_v.insert(n);
+	_v.push_back(n);
 }
 
 // ! Pre-increment is needed to operate on iterators
@@ -47,22 +47,30 @@ void Span::addNumber(int const n) {
 int Span::shortestSpan() {
 	if (_v.size() < 2)
 		throw NotEnoughNumbersException();
-	std::set<int>::iterator it = _v.begin();
-	std::set<int>::iterator it2 = ++_v.begin();
-	return (*it2 - *it);
+
+	std::sort(_v.begin(), _v.end());
+	int    min = _v[1] - _v[0];
+	for (unsigned int i = 2; i < _v.size(); i++)
+	{
+		if ((_v[i] - _v[i - 1]) < min)
+			min = _v[i] - _v[i - 1];
+	}
+	return (min);
 }
 
 int Span::longestSpan() {
 	if (_v.size() < 2)
 		throw NotEnoughNumbersException();
-	std::set<int>::iterator it = _v.begin();
-	std::set<int>::iterator ite = --_v.end(); //points the last value
-	return (*ite - *it);
+
+	std::sort(_v.begin(), _v.end());
+	return (_v[_v.size() - 1] - _v[0]);
 }
 
-void Span::addNumberRange(unsigned int count, int max)
+void    Span::addNumberRange(std::vector<int>::iterator begin, std::vector<int>::iterator end)
 {
-	srand(time(NULL));
-	for (unsigned int i = 0; i < count; i++)
-		_v.insert(rand() % max);
+	if (_v.size() >= _maxElements)
+		throw ArrayIsFullException();
+	_v.insert(_v.end(), begin, end);
 }
+
+

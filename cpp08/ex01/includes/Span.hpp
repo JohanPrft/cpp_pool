@@ -5,6 +5,7 @@
 #include <algorithm>
 #include <iterator>
 #include <set>
+#include <vector>
 #include <cstdlib>
 
 class Span {
@@ -13,7 +14,7 @@ private:
 	Span();
 
 	unsigned int _maxElements;
-	std::set<int> _v;
+	std::vector<int> _v;
 	// set because: the elements are unique and sorted
 
 public:
@@ -24,7 +25,7 @@ public:
 
 	unsigned int const & getMaxElements() const;
 	void addNumber(int n);
-	void addNumberRange(unsigned int count, int max);
+	void addNumberRange(std::vector<int>::iterator begin, std::vector<int>::iterator end);
 	int shortestSpan();
 	int longestSpan();
 
