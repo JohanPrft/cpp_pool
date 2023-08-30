@@ -14,7 +14,7 @@
 
 # ---- Final Executable --- #
 
-NAME			=	easyFind
+NAME			=	mutantStack
 
 # ---- Directories ---- #
 
@@ -28,8 +28,7 @@ DIR_HEADERS		=	includes/
 
 HEADERS_LIST	=	MutantStack.hpp
 
-SRCS_LIST		=	main.cpp	\
-					MutantStack.cpp
+SRCS_LIST		=	main.cpp
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
 

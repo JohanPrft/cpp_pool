@@ -14,7 +14,7 @@
 
 # ---- Final Executable --- #
 
-NAME			=	easyFind
+NAME			=	span
 
 # ---- Directories ---- #
 
