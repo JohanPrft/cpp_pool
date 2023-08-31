@@ -28,7 +28,7 @@ DIR_HEADERS		=	includes/
 
 HEADERS_LIST	=	BitcoinExchange.hpp
 
-SRCS_LIST		=	main.cpp			\
+SRCS_LIST		=	main.cpp				\
 					BitcoinExchange.cpp
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
@@ -49,7 +49,7 @@ ${NAME}			:	${DIR_OBJS} ${OBJS} ${HEADERS}
 					${CPP} ${CFLAGS} -I ${DIR_HEADERS} ${OBJS} ${LIBRARY} -o ${NAME}
 
 run				:	${NAME}
-					./${NAME}
+					./${NAME} input.txt
 
 ${OBJS}			:	${DIR_OBJS}%.o:	${DIR_SRCS}%.cpp ${HEADERS} Makefile
 					${CPP} ${CFLAGS} -I ${DIR_HEADERS} -c $< -o $@
