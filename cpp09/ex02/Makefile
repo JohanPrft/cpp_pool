@@ -14,7 +14,7 @@
 
 # ---- Final Executable --- #
 
-NAME			=	RPN
+NAME			=	PmergeMe
 
 # ---- Directories ---- #
 
@@ -26,10 +26,10 @@ DIR_HEADERS		=	includes/
 
 # ---- Files ---- #
 
-HEADERS_LIST	=	RPN.hpp
+HEADERS_LIST	=	PmergeMe.hpp
 
 SRCS_LIST		=	main.cpp				\
-					RPN.cpp
+					PmergeMe.cpp
 
 HEADERS			=	${HEADERS_LIST:%.hpp=${DIR_HEADERS}%.hpp}
 
@@ -49,7 +49,7 @@ ${NAME}			:	${DIR_OBJS} ${OBJS} ${HEADERS}
 					${CPP} ${CFLAGS} -I ${DIR_HEADERS} ${OBJS} ${LIBRARY} -o ${NAME}
 
 run				:	${NAME}
-					./${NAME} "1 1 + 1 - 1 * 2 /"
+					./${NAME}
 
 ${OBJS}			:	${DIR_OBJS}%.o:	${DIR_SRCS}%.cpp ${HEADERS} Makefile
 					${CPP} ${CFLAGS} -I ${DIR_HEADERS} -c $< -o $@
