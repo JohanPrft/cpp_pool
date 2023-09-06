@@ -8,6 +8,7 @@
 #include <cerrno>
 #include <vector>
 #include <deque>
+#include <ctime>
 
 /*
  *	Merge-Insertion Sort : Ford–Johnson algorithm is a comparison sorting algorithm published in 1959.
@@ -32,7 +33,8 @@ private:
 	~PmergeMe();
 
 public:
-	// algorithm based on divide and conquer strategy
+	// algorithm based on divide and conquer strategy, efficient for large data sets
+	// but memory expensive
 	template <typename T>
 	static void merge(T& array, int left, int mid, int right)
 	{
@@ -49,7 +51,7 @@ public:
 			rightVector[j] = array[mid + 1 + j];
 
 		int i = 0, j = 0, k = left;
-		while (i < subVectorOneSize && j < subVectorTwoSize)
+		while (i < subVectorOneSize && j < subVectorTwoSize) //compare elements of both sub vectors, if one smaller copy and increment
 		{
 			if (leftVector[i] <= rightVector[j])
 			{
@@ -63,7 +65,7 @@ public:
 			k++;
 		}
 
-		while (i < subVectorOneSize)
+		while (i < subVectorOneSize)  //ensure no element is left behind
 		{
 			array[k] = leftVector[i];
 			i++;
@@ -79,7 +81,7 @@ public:
 	}
 
 	// algorithm growing a sorted list in front
-	// best for little list
+	// best for small / partially sorted list
 	template <typename T>
 	static void insertionSort(T& arr, int left, int right)
 	{
@@ -99,7 +101,7 @@ public:
 	template <typename T>
 	static void mergeInsertSort(T& array, int left, int right)
 	{
-		if (right - left + 1 <= 2)
+		if (right - left + 1 <= 4)
 		{
 			insertionSort(array, left, right);
 		} else if (left < right)
@@ -111,6 +113,10 @@ public:
 		}
 	}
 };
+
+std::ostream& operator<<(std::ostream& os, std::vector<int> const & vec);
+
+std::ostream& operator<<(std::ostream& os, std::deque<int> const & vec);
 
 
 #endif

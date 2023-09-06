@@ -1,7 +1,5 @@
 #include "../includes/PmergeMe.hpp"
 
-
-
 // COPLIEN FORM
 
 PmergeMe::PmergeMe() {
@@ -20,4 +18,21 @@ PmergeMe &PmergeMe::operator=(const PmergeMe &cpy) {
 
 PmergeMe::~PmergeMe() {
 
+}
+
+std::ostream& operator<<(std::ostream& os, std::vector<int> const & vec)
+{
+	for (std::vector<int>::const_iterator num = vec.begin(); num != vec.end(); num++) {
+		os << *num << " ";
+	}
+	return os;
+}
+
+
+std::ostream& operator<<(std::ostream& os, std::deque<int> const & vec)
+{
+	for (std::deque<int>::const_iterator num = vec.begin(); num != vec.end(); num++) {
+		os << *num << " ";
+	}
+	return os;
 }

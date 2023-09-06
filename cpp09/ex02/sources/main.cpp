@@ -3,14 +3,6 @@
 int INT_MIN = std::numeric_limits<int>::min();
 int INT_MAX = std::numeric_limits<int>::max();
 
-template<typename T>
-void printVector(const T& vec) {
-	for (typename T::const_iterator num = vec.begin(); num != vec.end(); num++) {
-		std::cout << *num << " ";
-	}
-	std::cout << std::endl;
-}
-
 std::vector<int> createVector(char **argv)
 {
 	std::vector<int> vector;
@@ -58,14 +50,26 @@ int main(int argc, char **argv)
 		std::cout << "Usage: ./PmergeMe 1 2 3 [...]" << std::endl;
 		return 1;
 	}
-	std::vector<int> vec = createVector(argv);
-	std::deque<int> vec1 = createDeque(argv);
-	printVector(vec);
-	printVector(vec1);
+	clock_t startTime;
+	clock_t endTime;
+	double timeElapsed;
+	startTime = clock();
+	std::vector<int> vec = createVector(argv); //contiguous in memory
+	std::cout << "Before: " << vec << std::endl;
 	PmergeMe::mergeInsertSort(vec, 0, vec.size() - 1);
+	endTime = clock();
+	timeElapsed = (double)(endTime - startTime) / CLOCKS_PER_SEC * 1000;
+	std::cout << "Time elapsed by vector: " << timeElapsed << "ms" << std::endl;
+	std::cout << "After: " << vec << std::endl;
+	std::cout << std::endl;
+	startTime = clock();
+	std::deque<int> vec1 = createDeque(argv); //efficient for add front
+	std::cout << "Before: " << vec1 << std::endl;
 	PmergeMe::mergeInsertSort(vec1, 0, vec1.size() - 1);
-	printVector(vec);
-	printVector(vec1);
+	endTime = clock();
+	timeElapsed = (double)(endTime - startTime) / CLOCKS_PER_SEC * 1000;
+	std::cout << "Time elapsed by deque: " << timeElapsed << "ms" << std::endl;
+	std::cout << "After: " << vec1 << std::endl;
 	return 0;
 }
 

@@ -49,7 +49,7 @@ ${NAME}			:	${DIR_OBJS} ${OBJS} ${HEADERS}
 					${CPP} ${CFLAGS} -I ${DIR_HEADERS} ${OBJS} ${LIBRARY} -o ${NAME}
 
 run				:	${NAME}
-					./${NAME}
+					./${NAME} 163 895 804 202 131 294 632 708 942 959
 
 ${OBJS}			:	${DIR_OBJS}%.o:	${DIR_SRCS}%.cpp ${HEADERS} Makefile
 					${CPP} ${CFLAGS} -I ${DIR_HEADERS} -c $< -o $@
